@@ -1,1 +1,1 @@
-DevOps is automation and CI/CD
+DevOps is automation, CI/CD, and Kubernetes
