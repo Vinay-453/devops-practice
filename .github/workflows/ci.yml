@@ -1,0 +1,23 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Show repository files
+      run: ls -l
+
+    - name: Show Docker version
+      run: docker --version
+
+    - name: Show Kubernetes client version
+      run: kubectl version --client
