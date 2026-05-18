@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  docker:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,13 +26,3 @@ jobs:
     - name: Push Docker image
       run: |
         docker push vinayatamai/devops-app:latest
-
-    - name: Setup kubeconfig
-      run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f k8s/
-        kubectl rollout restart deployment/devops-app
